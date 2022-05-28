@@ -11,5 +11,4 @@ export class AddTutorialComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }

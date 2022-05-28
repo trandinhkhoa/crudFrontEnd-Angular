@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TutorialService } from 'src/app/services/tutorial.service';
 
 @Component({
   selector: 'app-tutorials-lists',
@@ -7,9 +8,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TutorialsListsComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service: TutorialService) { }
 
   ngOnInit(): void {
+  }
+
+  onClick(): void {
+    console.log("HELLO clicked");
+    // subsribe is needed if you want your call to fire ???
+    // https://stackoverflow.com/questions/48385535/angular-httpclient-call-ignored
+    this.service.getAll().subscribe(
+      res => {
+        console.log("HELLO response received = ", res);
+      }
+    );
+
   }
 
 }
